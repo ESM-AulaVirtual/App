@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aula21</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<div class="stick-to-right">
+	<div id="admin_nav">
+		<% if user_signed_in? %>Sesión iniciada (<%= current_user.name %> <%= current_user.last_name1 %>) | 
+		<%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete %> | 
+		<%= link_to "Panel de Control", dashboard_index_path %> 		
+	<% else %>
+		<%# if %>
+			<%= link_to "Iniciar sesión", new_user_session_path %>
+		<% #end %>
+	<% end %>
+</div>
+</div>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
