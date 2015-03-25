@@ -1,0 +1,55 @@
+<h2><b>    Registro</b></h2><hr />
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label "Rut:" %><br />
+    <%= f.text_field :rut, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Nombres: " %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div> 
+   
+  <div class="field">
+    <%= f.label "Primer apellido:" %><br />
+    <%= f.text_field :last_name1, autofocus: true %>
+  </div>
+
+    <div class="field">
+    <%= f.label "Segundo apellido:" %><br />
+    <%= f.text_field :last_name2, autofocus: true %>
+  </div>
+ 
+  <div class="field">
+    <%= f.label "E-mail:" %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Contraseña:" %>
+    <% if @validatable %>
+    <em>(<%= @minimum_password_length %> caracteres minimos)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Confirmar contraseña:" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+ 
+  <div class="field">
+    <%= f.label "Ingrese su código:" %><br />
+    <%= f.text_field :category, autofocus: true %>
+  </div>
+  
+<hr />
+  <div class="actions">
+    <%= f.submit "Registrarse" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
